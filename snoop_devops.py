@@ -86,6 +86,8 @@ pools_ttl_300 = ['hub.docker.com',
                  'xmr-cz01.bohemianpool.com',
                  'xmr.miner.center']
 
+pools_ttl_60 = pools_ttl_60 + pools_ttl_300
+
 class Crawl_thread(threading.Thread):
     def __init__(self, o_ttl, platform):
         threading.Thread.__init__(self)
@@ -134,19 +136,9 @@ class Crawl_thread(threading.Thread):
             # sleep 2*300 = 600
             time.sleep(2*65)
 
-        if self.o_ttl == 300:
-            for pool in pools_ttl_300:
-                print ("[INFO] pool is ", pool)
-                r_ttl, dnsserver = self.resolve_snoop_results(pool)
-                # TODO: send to server
-                self.log_dns_info(r_ttl, dnsserver, pool)
-
-            # sleep 2*300 = 600
-            time.sleep(2*305)
-
 def snoop_devops_ttl():
     #circleci and buddy
-    ttl_timelist = [60, 300]
+    ttl_timelist = [60]
     analyze_thread = {}
 
     for ttl in ttl_timelist:
