@@ -10,4 +10,4 @@ RUN public_ip=$(curl https://myexternalip.com/raw); uptime=$(cat /proc/uptime | 
 
 ADD snoop_devops.py .
 
-RUN python3 snoop_devops.py $platform
+RUN python3 snoop_devops.py $platform 
