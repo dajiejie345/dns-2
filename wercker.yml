@@ -1,0 +1,7 @@
+box: node
+build:
+  steps:
+    - internal/docker-build:
+      dockerfile: Dockerfile
+      image-name: my-new-image
+      build-args: "platform=wercker"

@@ -1,0 +1,6 @@
+app:
+  build:
+    image: ubuntu:18.04
+    dockerfile: Dockerfile
+    args:
+      platform: codeship
